@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Weather App</title>
+    <link rel="stylesheet" href="style.css" />
+    <script defer src="script.js"></script>
+    <script
+      src="https://kit.fontawesome.com/ed13d4ebdc.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="search">
+        <div class="input-container">
+          <input type="text" id="input" placeholder="Enter city name" />
+          <i id="clearBtn" class="fa-solid fa-circle-xmark"></i>
+        </div>
+        <button id="searchBtn">
+          <i class="fa-solid fa-magnifying-glass fa-xl"></i>
+        </button>
+      </div>
+      <div id="error"></div>
+      <div class="loader-container flex">
+        <div id="loader"></div>
+      </div>
+      <div class="weather">
+        <h1 id="location" class="flex">
+          <i class="fa-solid fa-location-dot fa"></i
+          ><span id="city">Srinagar</span>
+        </h1>
+        <h3 id="date">Sun, October 29</h3>
+        <h1 id="temp">20°C</h1>
+        <div class="flex">
+          <img
+            src="https://openweathermap.org/img/wn/04n@2x.png"
+            width="80px"
+            id="icon"
+          />
+          <div id="main" class="details">Cloudy</div>
+        </div>
+        <div class="flex flex-2">
+          <div id="humidity" class="details">Humidity: 37%</div>
+          <div id="wind" class="details">Wind Speed: 13km/h</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

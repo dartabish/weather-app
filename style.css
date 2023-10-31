@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Utility classes */
+.flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* General styles */
+body {
+  display: flex;
+  justify-content: center;
+  font-family: 'Poppins', sans-serif;
+  margin-top: 100px;
+  background-color: rgb(32, 32, 40);
+  background-image: url('https://source.unsplash.com/1600x900/?landscape');
+}
+
+.container {
+  text-align: center;
+  background-color: rgb(2, 21, 41);
+  color: white;
+  padding: 30px;
+  border-radius: 30px;
+  width: 100%;
+  max-width: 470px;
+}
+
+.search {
+  display: flex;
+}
+
+.input-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+#clearBtn {
+  color: black;
+  position: absolute;
+  right: 10px;
+  display: none;
+}
+
+#clearBtn:hover {
+  color: crimson;
+  cursor: pointer;
+}
+
+#input {
+  text-transform: capitalize;
+  width: 100%;
+  padding: 15px 20px;
+  border: none;
+  border-top-left-radius: 30px;
+  border-bottom-left-radius: 30px;
+  font-size: 18px;
+  outline-color: grey;
+}
+
+#searchBtn {
+  border: none;
+  padding: 15px 25px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  cursor: pointer;
+}
+
+#searchBtn:active {
+  transition: all 0.1s ease-in-out;
+  background-color: grey;
+}
+
+#error {
+  display: none;
+  margin-top: 20px;
+  font-size: 30px;
+  color: rgb(174, 16, 16);
+}
+
+.loader-container {
+  display: none;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+#loader {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #f3f3f3;
+  border-top: 4px solid rgb(81, 77, 77);
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.weather {
+  margin-top: 20px;
+  display: none;
+}
+
+#city {
+  margin-left: 8px;
+  font-size: 45px;
+}
+
+#date {
+  font-size: 20px;
+  margin-top: 5px;
+}
+
+.details {
+  font-size: 20px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
+#temp {
+  font-size: 70px;
+  margin-top: 20px;
+}
+
+.flex-2 {
+  justify-content: space-between;
+}
