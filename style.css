@@ -25,7 +25,7 @@ body {
 
 .container {
   text-align: center;
-  background-color: rgb(2, 21, 41);
+  background-color: rgba(2, 21, 41, 0.8);
   color: white;
   padding: 30px;
   border-radius: 30px;
@@ -110,6 +110,7 @@ body {
     transform: rotate(360deg);
   }
 }
+
 .weather {
   margin-top: 20px;
   display: none;
@@ -138,4 +139,20 @@ body {
 
 .flex-2 {
   justify-content: space-between;
+}
+
+/* Mobile view */
+
+@media only screen and (max-width: 768px) {
+  body {
+    padding: 0 40px;
+  }
+
+  #city {
+    font-size: 30px;
+  }
+
+  #date {
+    font-size: 18px;
+  }
 }
