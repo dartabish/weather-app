@@ -146,6 +146,7 @@ body {
 @media only screen and (max-width: 768px) {
   body {
     padding: 0 40px;
+    background-image: url('https://source.unsplash.com/768x900/?landscape');
   }
 
   #city {

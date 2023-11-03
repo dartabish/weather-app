@@ -77,7 +77,7 @@ async function getWeather() {
   const { icon, main } = data.weather[0];
   const { speed } = data.wind;
 
-  //changing background according to city name
+  //changing background according to city
   document.body.style.backgroundImage =
     "url('https://source.unsplash.com/1600x900/?" + name + "')";
 
