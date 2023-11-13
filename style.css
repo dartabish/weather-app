@@ -22,22 +22,22 @@ body,
 }
 
 body {
+  height: 100vh;
   justify-content: center;
   font-family: 'Poppins', sans-serif;
-
-  background-color: rgb(32, 32, 40);
-  background-image: url('https://source.unsplash.com/1600x900/?landscape');
+  background-color: rgb(3, 35, 69);
 }
 
 .container {
+  width: 100%;
+  height: fit-content;
+  max-width: 470px;
   margin-top: 100px;
   text-align: center;
   background-color: rgba(2, 21, 41, 0.8);
   color: white;
   padding: 30px;
   border-radius: 30px;
-  width: 100%;
-  max-width: 470px;
 }
 
 .input-container {
@@ -154,7 +154,7 @@ input {
 @media only screen and (max-width: 768px) {
   body {
     padding: 0 40px;
-    background-image: url('https://source.unsplash.com/768x900/?landscape');
+    /* background: linear-gradient(-135deg, #021529, #021529b3); */
   }
 
   #city {
