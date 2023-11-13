@@ -41,7 +41,7 @@ inputField.addEventListener('keyup', e => {
 searchBtn.addEventListener('click', getWeather);
 
 async function getWeather() {
-  const cityName = inputField.value;
+  const cityName = inputField.value.trim();
 
   //showing loader
   showLoader();
@@ -59,7 +59,11 @@ async function getWeather() {
   } catch (err) {
     weather.style.display = 'none';
     errorMessage.style.display = 'block';
-    errorMessage.innerText = 'Invalid city name.';
+    if (cityName === '') {
+      errorMessage.innerText = 'Please enter city name.';
+    } else {
+      errorMessage.innerText = 'Invalid city name.';
+    }
     hideLoader();
     return;
   }
@@ -78,8 +82,17 @@ async function getWeather() {
   const { speed } = data.wind;
 
   //changing background according to city
-  document.body.style.backgroundImage =
-    "url('https://source.unsplash.com/1600x900/?" + name + "')";
+  function setBgImage() {
+    const screenWidth = window.innerWidth;
+    if (screenWidth >= 768) {
+      document.body.style.backgroundImage =
+        "url('https://source.unsplash.com/1600x900/?" + name + "')";
+    } else {
+      document.body.style.backgroundImage = 'none';
+    }
+  }
+
+  setBgImage();
 
   //updating weather info in HTML
   document.getElementById('city').innerText = `${name}, ${country}`;
