@@ -46,10 +46,6 @@ body {
   position: relative;
 }
 
-input {
-  font-weight: 600;
-}
-
 #clearBtn {
   color: black;
   position: absolute;
@@ -71,6 +67,7 @@ input {
   border-bottom-left-radius: 30px;
   font-size: 18px;
   outline-color: grey;
+  font-weight: 600;
 }
 
 #searchBtn {
@@ -153,7 +150,7 @@ input {
 
 @media only screen and (max-width: 768px) {
   body {
-    padding: 0 40px;
+    padding: 0 20px;
     /* background: linear-gradient(-135deg, #021529, #021529b3); */
   }
 
@@ -176,5 +173,10 @@ input {
 
   #error {
     font-size: 20px;
+  }
+
+  #input {
+    font-size: 14px;
+    font-weight: 500;
   }
 }
