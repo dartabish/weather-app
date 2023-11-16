@@ -82,14 +82,31 @@ async function getWeather() {
   const { speed } = data.wind;
 
   //changing background according to city
-  function setBgImage() {
-    const screenWidth = window.innerWidth;
-    if (screenWidth >= 768) {
-      document.body.style.backgroundImage =
-        "url('https://source.unsplash.com/1600x900/?" + name + "')";
-    } else {
-      document.body.style.backgroundImage = 'none';
+  async function setBgImage() {
+    let response;
+    try {
+      response = await fetch(
+        `https://api.unsplash.com/search/photos/?client_id=SyieCIDZMH5JbeuVQyIalRTq2YBFDDOtnbV0Wqzydq4&query=${name}&orientation=landscape`
+      );
+    } catch (error) {
+      console.log('Error', error);
     }
+    const images = await response.json();
+
+    const screenWidth = window.innerWidth;
+    const index = Math.floor(Math.random() * images.results.length);
+    let imgURL = images.results[index].urls.regular;
+    console.log(imgURL);
+
+    let width, height;
+    if (screenWidth >= 768) {
+      width = 1920;
+      height = 1080;
+    }
+    document.body.style.backgroundImage = `url(${imgURL}&w=${width}&h=${height})`;
+    document.body.style.backgroundSize = 'cover';
+    document.body.style.backgroundRepeat = 'no-repeat';
+    document.body.style.backgroundPosition = 'center center';
   }
 
   setBgImage();
