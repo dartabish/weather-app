@@ -14,6 +14,27 @@
   align-items: center;
 }
 
+.clear {
+  background: linear-gradient(135deg, #87ceeb, #1e90ff);
+}
+
+.clouds {
+  background: linear-gradient(135deg, #607c8e, #28343b);
+}
+
+.snow {
+  background: linear-gradient(135deg, #ecf0f1, #bdc3c7);
+}
+
+.rain {
+  background: linear-gradient(135deg, #2c3e50, #bdc3c7);
+}
+
+.mist {
+  background: linear-gradient(135deg, #757575, #333333);
+  opacity: 1;
+}
+
 /* General styles */
 body,
 .search,
@@ -22,8 +43,10 @@ body,
 }
 
 body {
+  position: relative;
+  flex-direction: column;
+  align-items: center;
   height: 100vh;
-  justify-content: center;
   font-family: 'Poppins', sans-serif;
   background-color: rgb(3, 35, 69);
 }
@@ -144,6 +167,28 @@ body {
 
 .extra-info {
   justify-content: space-between;
+}
+
+footer {
+  display: none;
+  color: #fff;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+}
+
+footer > a {
+  color: red;
+  text-decoration: none;
+}
+
+footer > a:hover {
+  text-decoration: underline;
+}
+
+footer > a:visited {
+  color: #fff;
 }
 
 /* Mobile view */

@@ -1,4 +1,5 @@
-apiKey = '5bb7ee7fcbbe1c2e724027b43c843164';
+import { format } from 'https://cdn.skypack.dev/date-fns';
+const apiKey = '5bb7ee7fcbbe1c2e724027b43c843164';
 const inputField = document.getElementById('input');
 const searchBtn = document.getElementById('searchBtn');
 const clearInputBtn = document.getElementById('clearBtn');
@@ -37,9 +38,29 @@ inputField.addEventListener('keyup', e => {
   }
 });
 
+//changing background according to weather condition
+function setBackground(main) {
+  let canvas = document.querySelector('body');
+  const conditions = ['Clear', 'Clouds', 'Rain', 'Snow', 'Mist'];
+  conditions.forEach(condition => {
+    const conditionClass = condition.toLowerCase();
+    if (main === condition) {
+      canvas.classList.add(conditionClass);
+    } else {
+      canvas.classList.remove(conditionClass);
+    }
+  });
+}
+
+//date function
+function displayDate() {
+  const now = new Date();
+  const formattedDate = format(now, 'EE, MMMM dd');
+  document.getElementById('date').innerText = formattedDate;
+}
+
 //fetching and displaying weather
 searchBtn.addEventListener('click', getWeather);
-
 async function getWeather() {
   const cityName = inputField.value.trim();
 
@@ -59,6 +80,7 @@ async function getWeather() {
   } catch (err) {
     weather.style.display = 'none';
     errorMessage.style.display = 'block';
+
     if (cityName === '') {
       errorMessage.innerText = 'Please enter city name.';
     } else {
@@ -81,35 +103,8 @@ async function getWeather() {
   const { icon, main } = data.weather[0];
   const { speed } = data.wind;
 
-  //changing background according to city
-  async function setBgImage() {
-    let response;
-    try {
-      response = await fetch(
-        `https://api.unsplash.com/search/photos/?client_id=SyieCIDZMH5JbeuVQyIalRTq2YBFDDOtnbV0Wqzydq4&query=${name}&orientation=landscape`
-      );
-    } catch (error) {
-      console.log('Error', error);
-    }
-    const images = await response.json();
-
-    const screenWidth = window.innerWidth;
-    const index = Math.floor(Math.random() * images.results.length);
-    let imgURL = images.results[index].urls.regular;
-    console.log(imgURL);
-
-    let width, height;
-    if (screenWidth >= 768) {
-      width = 1920;
-      height = 1080;
-    }
-    document.body.style.backgroundImage = `url(${imgURL}&w=${width}&h=${height})`;
-    document.body.style.backgroundSize = 'cover';
-    document.body.style.backgroundRepeat = 'no-repeat';
-    document.body.style.backgroundPosition = 'center center';
-  }
-
-  setBgImage();
+  //changing bg
+  setBackground(main);
 
   //updating weather info in HTML
   document.getElementById('city').innerText = `${name}, ${country}`;
@@ -124,27 +119,7 @@ async function getWeather() {
   weather.style.display = 'block';
 
   //displaying date
-  const daysOfWeek = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
-  const months = [
-    'January',
-    'February',
-    'March',
-    'April',
-    'May',
-    'June',
-    'July',
-    'August',
-    'September',
-    'October',
-    'November',
-    'December',
-  ];
-
-  const date = new Date();
-  const day = date.getDate();
-  const dayName = daysOfWeek[date.getDay()];
-  const month = months[date.getMonth()];
-  document.getElementById('date').innerText = `${dayName}, ${month} ${day}`;
+  displayDate();
 
   //hiding loader
   hideLoader();
