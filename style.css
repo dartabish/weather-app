@@ -64,7 +64,7 @@ body {
   position: relative;
   flex-direction: column;
   align-items: center;
-  height: 100vh;
+  height: 100dvh;
   font-family: 'Poppins', sans-serif;
   background-color: rgb(3, 35, 69);
 }
