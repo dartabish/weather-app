@@ -12,12 +12,13 @@
       src="https://kit.fontawesome.com/ed13d4ebdc.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="search">
         <div class="input-container">
-          <input type="text" id="input" placeholder="Enter city name" />
+          <input type="text" id="input" />
           <i id="clearBtn" class="fa-solid fa-circle-xmark"></i>
         </div>
         <button id="searchBtn">
@@ -35,7 +36,7 @@
         </h1>
         <h3 id="date">Sun, October 29</h3>
         <h1 id="temp">20°C</h1>
-        <div class="flex">
+        <div class="flex" style="padding-right: 25px">
           <img
             src="https://openweathermap.org/img/wn/04n@2x.png"
             width="80px"
@@ -49,9 +50,5 @@
         </div>
       </div>
     </div>
-    <footer>
-      Photo by
-      <a href="" target="_blank"></a>
-    </footer>
   </body>
 </html>

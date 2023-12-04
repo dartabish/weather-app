@@ -6,6 +6,14 @@ const clearInputBtn = document.getElementById('clearBtn');
 const weather = document.querySelector('.weather');
 const errorMessage = document.getElementById('error');
 
+//typed.js
+const typed = new Typed('#input', {
+  strings: ['Enter city name'],
+  attr: 'placeholder',
+  bindInputFocusEvents: true,
+  typeSpeed: 25,
+});
+
 //clear button functionality
 clearInputBtn.addEventListener('click', () => {
   inputField.value = '';
@@ -41,7 +49,16 @@ inputField.addEventListener('keyup', e => {
 //changing background according to weather condition
 function setBackground(main) {
   let canvas = document.querySelector('body');
-  const conditions = ['Clear', 'Clouds', 'Rain', 'Snow', 'Mist'];
+  const conditions = [
+    'Clear',
+    'Clouds',
+    'Rain',
+    'Snow',
+    'Mist',
+    'Haze',
+    'Fog',
+    'Smoke',
+  ];
   conditions.forEach(condition => {
     const conditionClass = condition.toLowerCase();
     if (main === condition) {
