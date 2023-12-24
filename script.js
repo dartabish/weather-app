@@ -1,4 +1,3 @@
-import { format } from 'https://cdn.skypack.dev/date-fns';
 const apiKey = '5bb7ee7fcbbe1c2e724027b43c843164';
 const inputField = document.getElementById('input');
 const searchBtn = document.getElementById('searchBtn');
@@ -47,7 +46,7 @@ inputField.addEventListener('keyup', e => {
 });
 
 //changing background according to weather condition
-function setBackground(main) {
+/* function setBackground(main) {
   let canvas = document.querySelector('body');
   const conditions = [
     'Clear',
@@ -67,12 +66,19 @@ function setBackground(main) {
       canvas.classList.remove(conditionClass);
     }
   });
-}
+} */
 
 //date function
 function displayDate() {
-  const now = new Date();
-  const formattedDate = format(now, 'EE, MMMM dd');
+  const currentDate = new Date();
+  const options = {
+    weekday: 'long',
+    month: 'short',
+    day: 'numeric',
+  };
+
+  const formatter = new Intl.DateTimeFormat('en-us', options);
+  const formattedDate = formatter.format(currentDate);
   document.getElementById('date').innerText = formattedDate;
 }
 
@@ -121,7 +127,7 @@ async function getWeather() {
   const { speed } = data.wind;
 
   //changing bg
-  setBackground(main);
+  /* setBackground(main); */
 
   //updating weather info in HTML
   document.getElementById('city').innerText = `${name}, ${country}`;
